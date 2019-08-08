@@ -28,7 +28,7 @@ import os
 from cgroupspy.contenttypes import DeviceAccess, DeviceThrottle
 
 from .interfaces import FlagFile, BitFieldFile, CommaDashSetFile, IntegerFile, SplitValueFile
-from .interfaces import MultiLineIntegerFile, DictFile, IntegerListFile, TypedFile
+from .interfaces import MultiLineIntegerFile, DictFile, IntegerListFile, TypedFile, DictAndFlagFile
 
 
 class Controller(object):
@@ -171,7 +171,7 @@ class MemoryController(Controller):
 
     use_hierarchy = FlagFile("memory.use_hierarchy")
     force_empty = FlagFile("memory.force_empty")
-    oom_control = FlagFile("memory.oom_control")
+    oom_control = DictAndFlagFile("memory.oom_control")
 
     move_charge_at_immigrate = BitFieldFile("memory.move_charge_at_immigrate")
 
