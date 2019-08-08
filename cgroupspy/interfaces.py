@@ -248,3 +248,15 @@ class TypedFile(BaseFileInterface):
                 return res[0]
             return None
         return res
+
+class DictAndFlagFile(BaseFileInterface):
+
+    def sanitize_set(self, value):
+        return int(bool(value))
+
+    def sanitize_get(self, value):
+        res = {}
+        for el in value.split("\n"):
+            key, val = el.split()
+            res[key] = int(val)
+        return res
