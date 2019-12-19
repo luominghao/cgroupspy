@@ -68,6 +68,11 @@ class BaseFileInterface(object):
     def sanitize_set(self, value):
         return value
 
+class StrFile(BaseFileInterface):
+    """
+    Just for string file, do nothing.
+    """
+    pass
 
 class FlagFile(BaseFileInterface):
 
