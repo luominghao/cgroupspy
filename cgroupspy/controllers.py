@@ -27,7 +27,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import os
 from cgroupspy.contenttypes import DeviceAccess, DeviceThrottle
 
-from .interfaces import FlagFile, BitFieldFile, CommaDashSetFile, IntegerFile, SplitValueFile
+from .interfaces import FlagFile, BitFieldFile, CommaDashSetFile, IntegerFile, SplitValueFile, StrFile
 from .interfaces import MultiLineIntegerFile, DictFile, IntegerListFile, TypedFile, DictAndFlagFile
 
 
@@ -174,6 +174,8 @@ class MemoryController(Controller):
     oom_control = DictAndFlagFile("memory.oom_control")
 
     move_charge_at_immigrate = BitFieldFile("memory.move_charge_at_immigrate")
+   
+    cache_charge_redirect = StrFile("memory.cache_charge_redirect")
 
     # Requires special file interface
     # numa_stat =
